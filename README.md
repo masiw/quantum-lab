@@ -1,10 +1,15 @@
 ### Build:
 ```bash
-docker build -t my-jupyter-image .
+docker build -t masi-quantum-lab .
 ```
 
-### Run:
+### Create
 ```bash
-docker run -p 8888:8888 --name my-jupyter-container my-jupyter-image
+docker create -p 8888:8888 --mount type=bind,source="$(pwd)"/app,target=/app --name quantum-lab-container masi-quantum-lab
+```
+
+### Start
+```bash
+docker start quantum-lab-container
 ```
 
